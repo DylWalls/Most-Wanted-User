@@ -35,7 +35,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = prompt("Found " + person.firstName.indexof(1) + " " + person.lastName.indexof(2) + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+  //let displayOption = prompt(`Found ${people.firstName + " " + people.lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
 
   switch(displayOption){
     case "info":
@@ -245,6 +245,7 @@ function searchByName(people){
     }
   })
   // TO DO: find the person using the name they entered
+  let displayOption = prompt(`Found ${firstName + " " +lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
   return foundPerson;
 }
 
