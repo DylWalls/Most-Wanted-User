@@ -14,7 +14,7 @@ function app(people){
     case 'no':
       // redirect answer to more appropiate place in the code.........It is going to displayOption (line 37)
       // TODO: search by traits
-      searchByTraits(people);
+      featureMenu(people);
       break;
     default:
     app(people); // restart app
@@ -35,7 +35,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+  let displayOption = prompt("Found " + person.firstName.indexof(1) + " " + person.lastName.indexof(2) + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
   switch(displayOption){
     case "info":
@@ -60,30 +60,39 @@ function mainMenu(person, people){
 function searchByTraits(people){
 
   var listed = "";
-  var filterdList;
+  var filteredList;
 
-  filterdList =  searchByAge(people);
-  filterdList =  searchByHeight(filterdList);
-  filterdList =  searchByWeight(filterdList);
-  filterdList =  searchByOccupation(filterdList);
-  filterdList =  searchByEyeColor(filterdList);
+  filteredList =  searchByAge(people);
+  filteredList =  searchByHeight(filteredList);
+  filteredList =  searchByWeight(filteredList);
+  filteredList =  searchByOccupation(filteredList);
+  filteredList =  searchByEyeColor(filteredList);
 
-  if (filterdList.length === 22){
+  if (filteredList.length === 22){
     alert("You said no to all filters, there is no one to display.")
   }
-  else if (filterdList.length == 0){
+  else if (filteredList.length == 0){
     alert("There is no one that meets your criteria.")
   }
   else {
 
-    for (var i=0; i< filterdList.length; i++){
-      listed += filterdList[i].firstName + " " + filterdList[i].lastName + " ";
+    for (var i=0; i< filteredList.length; i++){
+      listed += filteredList[i].firstName + " " + filteredList[i].lastName + " ";
     }
     alert(listed)
   }
   app(people);
 }
+function featureMenu (people){
+  var userInput = prompt("What feature would you like to lookup? \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");
+  if (userInput === "1"){
+    var ageEntry = promptFor("How old do you think they are?");
+        if (ageEntry <= "49" && ageEntry >= "40"){
+              
+        }
+  }
 
+}
 function searchByHeight(people) {
   var heightSearch = promptFor("Do you want to search by height? Enter yes or no.", yesNo).toLowerCase();
 
