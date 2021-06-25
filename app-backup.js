@@ -22,7 +22,7 @@ function app(people){
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults[0], people);
 }
 
 // Menu function to call once you find who you are looking for
@@ -35,11 +35,11 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  //let displayOption = prompt(`Found ${people.firstName + " " + people.lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
+  let displayOption = prompt(`Found ${person.firstName + " " + person.lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info    
+    // TODO: get person's info
     break;
     case "family":
     // TODO: get person's family
@@ -84,13 +84,32 @@ function searchByTraits(people){
   app(people);
 }
 function featureMenu (people){
-  var userInput = prompt("What feature would you like to lookup? \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");
+  var userInput = prompt("What do you know about them? Enter the Number \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");
   if (userInput === "1"){
-    var ageEntry = promptFor("How old do you think they are?");
-        if (ageEntry <= "49" && ageEntry >= "40"){
-              
-        }
-  }
+    var ageEntry = promptFor("How old do you think they are? Enter the Number \n 1: 30s \n 2: 40s \n 3: 50s \n 4: 60s \n 5: 70s \n 6: 80s");
+       if(ageEntry === "1"){
+        alert("1");
+
+       }
+       else if (ageEntry === "2"){
+         alert("2")
+       }
+       else if (ageEntry === "3"){
+          alert("3")
+       }
+       else if (ageEntry === "4"){
+         alert("4")
+       }
+       else if (ageEntry === "5"){
+         alert("5")
+       }
+       else if (ageEntry === "6"){
+         alert("6")
+       }
+       else{
+         return app(people);
+       }
+    }
 
 }
 function searchByHeight(people) {
@@ -209,27 +228,27 @@ function searchByAge(people) {
   }
 }
 
-function changeDobToAge(people) {
+// function changeDobToAge(people) {
 
-  var peopleAge = people.map(function (element) {
-      var dateOfBirth = new Date(element.dob);
-      var currentDate = new Date();
-      var result = currentDate - dateOfBirth;
-      var age = Math.floor(result / 31536000000);
-      return element.age = age;
-  });
-}
+//   var peopleAge = people.map(function (element) {
+//       var dateOfBirth = new Date(element.dob);
+//       var currentDate = new Date();
+//       var result = currentDate - dateOfBirth;
+//       var age = Math.floor(result / 31536000000);
+//       return element.age = age;
+//   });
+// }
 
-function lookUpAge(people) {
+// function lookUpAge(people) {
 
-  var age = parseInt(promptFor("What is the person's age?", chars));
-  var ageFilteredArray = people.filter(function (element) {
-      if (element.age === age) {
-          return true;
-      }
-  });
-  return ageFilteredArray;
-}
+//   var age = parseInt(promptFor("What is the person's age?", chars));
+//   var ageFilteredArray = people.filter(function (element) {
+//       if (element.age === age) {
+//           return true;
+//       }
+//   });
+//   return ageFilteredArray;
+// }
 
 
 function searchByName(people){
@@ -245,7 +264,6 @@ function searchByName(people){
     }
   })
   // TO DO: find the person using the name they entered
-  let displayOption = prompt(`Found ${firstName + " " +lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
   return foundPerson;
 }
 
@@ -256,15 +274,15 @@ function displayPeople(people){
   }).join("\n"));
 }
 
-function displayPerson(person){
-  // prompt user if they want to see more information on the person data (Y/N)
+function displayInfo(person){
   // Make a code to call all the traits of the person. (IE: data = (people, [i])), alert([i])
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.   
-  let personInfo = "First Name: " + person[i].firstName + "\n";
-  personInfo += "Last Name: " + person[i].lastName + "\n";
+  // let personInfo = "First Name: " + person[i].firstName + "\n";
+  // personInfo += "Last Name: " + person[i].lastName + "\n";
   // TODO: finish getting the rest of the information to display
-  alert(personInfo);
+  // let billyBob = data[0];
+  alert(data[i]);
 }
 
 // function that prompts and validates user input
