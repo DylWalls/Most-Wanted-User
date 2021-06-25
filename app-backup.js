@@ -79,32 +79,103 @@ function searchByTraits(people){
     for (var i=0; i< filteredList.length; i++){
       listed += filteredList[i].firstName + " " + filteredList[i].lastName + " ";
     }
-    alert(listed)
-  }
-  app(people);
-}
-function featureMenu (people){
-  var userInput = prompt("What do you know about them? Enter the Number \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");
+    alert(listed)    
+  }    
+  app(people);    
+}    
+function featureMenu (people){    
+  var userInput = prompt("What do you know about them? Enter the Number \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");    
   if (userInput === "1"){
-    var ageEntry = promptFor("How old do you think they are? Enter the Number \n 1: 30s \n 2: 40s \n 3: 50s \n 4: 60s \n 5: 70s \n 6: 80s");
+    var ageEntry = prompt("How old do you think they are? Enter the Number \n 1: 30s \n 2: 40s \n 3: 50s \n 4: 60s \n 5: 70s \n 6: 80s");
        if(ageEntry === "1"){
-        alert("1");
-
+        alert("Here is a list of people in this age group: \n Joey Madden");
+          var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+          switch(ageEntries){
+            case 'yes':
+              ageEntries = searchByName(people);
+              break;
+            case 'no':
+              featureMenu(people);
+              break;
+            default:
+            app(people); // restart app
+              break;
+          }
        }
        else if (ageEntry === "2"){
-         alert("2")
+        alert("There is no one in this age group. Try another selection");
+        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            ageEntries = searchByName(people);
+            break;
+          case 'no':
+            featureMenu(people);
+            break;
+          default:
+          app(people); // restart app
+            break;
+        }
        }
        else if (ageEntry === "3"){
-          alert("3")
+        alert("Here is a list of people in this age group: \n Ellen Madden \n Mattias Madden \n Eloise Madden \n Amii Pafoy \n Dave Pafoy \n Annie Pafoy \n Jasmine Bob \n Ralph Bob \n Jill Pafoy");
+        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            ageEntries = searchByName(people);
+            break;
+          case 'no':
+            featureMenu(people);
+            break;
+          default:
+          app(people); // restart app
+            break;
+        }
        }
        else if (ageEntry === "4"){
-         alert("4")
+        alert("Here is a list of people in this age group \n Uma Bob \n Billy Bob \n Mister Potatoo \n Hanna Madden \n Regina Madden");
+        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            ageEntries = searchByName(people);
+            break;
+          case 'no':
+            featureMenu(people);
+            break;
+          default:
+          app(people); // restart app
+            break;
+        }
        }
        else if (ageEntry === "5"){
-         alert("5")
+        alert("Here is a list of people in this age group \n Missuz Potatoo \n Jon Walkens \n Micheal Walkens");
+        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            ageEntries = searchByName(people);
+            break;
+          case 'no':
+            featureMenu(people);
+            break;
+          default:
+          app(people); // restart app
+            break;
+        }
        }
        else if (ageEntry === "6"){
-         alert("6")
+        alert("Here is a list of people in this age group \n Jen Pafoy \n Jack Pafoy \n Mader Madden \n Joy Madden");
+        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            ageEntries = searchByName(people);
+            break;
+          case 'no':
+            featureMenu(people);
+            break;
+          default:
+          app(people); // restart app
+            break;
+        }
        }
        else{
          return app(people);
@@ -228,28 +299,6 @@ function searchByAge(people) {
   }
 }
 
-// function changeDobToAge(people) {
-
-//   var peopleAge = people.map(function (element) {
-//       var dateOfBirth = new Date(element.dob);
-//       var currentDate = new Date();
-//       var result = currentDate - dateOfBirth;
-//       var age = Math.floor(result / 31536000000);
-//       return element.age = age;
-//   });
-// }
-
-// function lookUpAge(people) {
-
-//   var age = parseInt(promptFor("What is the person's age?", chars));
-//   var ageFilteredArray = people.filter(function (element) {
-//       if (element.age === age) {
-//           return true;
-//       }
-//   });
-//   return ageFilteredArray;
-// }
-
 
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
@@ -274,16 +323,16 @@ function displayPeople(people){
   }).join("\n"));
 }
 
-function displayInfo(person){
-  // Make a code to call all the traits of the person. (IE: data = (people, [i])), alert([i])
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.   
-  // let personInfo = "First Name: " + person[i].firstName + "\n";
-  // personInfo += "Last Name: " + person[i].lastName + "\n";
-  // TODO: finish getting the rest of the information to display
-  // let billyBob = data[0];
-  alert(data[i]);
-}
+// function displayInfo(person){
+//   // Make a code to call all the traits of the person. (IE: data = (people, [i])), alert([i])
+//   // print all of the information about a person:
+//   // height, weight, age, name, occupation, eye color.   
+//   // let personInfo = "First Name: " + person[i].firstName + "\n";
+//   // personInfo += "Last Name: " + person[i].lastName + "\n";
+//   // TODO: finish getting the rest of the information to display
+//   // let billyBob = data[0];
+//   alert(data[i]);
+// }
 
 // function that prompts and validates user input
 function promptFor(question, valid){
