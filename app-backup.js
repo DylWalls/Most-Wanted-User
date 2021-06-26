@@ -10,10 +10,10 @@ function app(people){
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
+      console.log(searchResults);
       break;
     case 'no':
-      // redirect answer to more appropiate place in the code.........It is going to displayOption (line 37)
-      // TODO: search by traits
+      //search by traits 
       featureMenu(people);
       break;
     default:
@@ -22,7 +22,7 @@ function app(people){
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults[0], people);
+  mainMenu(searchResults, people);
 }
 
 // Menu function to call once you find who you are looking for
@@ -57,7 +57,26 @@ function mainMenu(person, people){
   }
 }
 
-function searchByTraits(people){
+function featureMenu(people){
+    var userInput = prompt("What feature do you want to search by? \n 1: Age \n 2: Height \n 3: Weight \n 4: Gender \n 5: Eye Color \n 6: Occupation");
+     if (userInput === "1"){
+        return searchByAge(people);
+      }
+      else if (userInput === "2"){
+        return searchByHeight(people);
+      }
+      else if (userInput === "3"){
+        return searchByWeight(people);
+      }
+      else if (userInput === "4"){
+        return searchByGender(people);
+      }
+      else if (userInput === "5"){
+        return searchByEyeColor(people);
+      }
+      else if (userInput === "6"){
+        return searchByOccupation(people);
+      }
 
   var listed = "";
   var filteredList;
@@ -83,20 +102,23 @@ function searchByTraits(people){
   }    
   app(people);    
 }    
-function featureMenu (people){    
-  var userInput = prompt("What do you know about them? Enter the Number \n 1: Age \n 2: Height \n 3: Weight \n 4: Occupation \n 5: Eye Color");    
-  if (userInput === "1"){
+function searchByAge(people){ 
     var ageEntry = prompt("How old do you think they are? Enter the Number \n 1: 30s \n 2: 40s \n 3: 50s \n 4: 60s \n 5: 70s \n 6: 80s");
        if(ageEntry === "1"){
         alert("Here is a list of people in this age group: \n Joey Madden");
-          var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+          var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
           switch(ageEntries){
             case 'yes':
-              ageEntries = searchByName(people);
-              break;
+              var findName = searchByName(people);
+            return findName;
             case 'no':
-              featureMenu(people);
-              break;
+              var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+              if (suspectNotFound === "yes"){
+              return searchByAge(people);
+              }
+              else if (suspectNotFound === "no"){
+                return featureMenu(people);
+              }
             default:
             app(people); // restart app
               break;
@@ -104,201 +126,285 @@ function featureMenu (people){
        }
        else if (ageEntry === "2"){
         alert("There is no one in this age group. Try another selection");
-        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
-        switch(ageEntries){
-          case 'yes':
-            ageEntries = searchByName(people);
-            break;
-          case 'no':
-            featureMenu(people);
-            break;
-          default:
-          app(people); // restart app
-            break;
-        }
-       }
+       return searchByAge(people)
+     }
        else if (ageEntry === "3"){
         alert("Here is a list of people in this age group: \n Ellen Madden \n Mattias Madden \n Eloise Madden \n Amii Pafoy \n Dave Pafoy \n Annie Pafoy \n Jasmine Bob \n Ralph Bob \n Jill Pafoy");
-        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
         switch(ageEntries){
           case 'yes':
-            ageEntries = searchByName(people);
-            break;
+            var findName = searchByName(people);
+          return findName;
           case 'no':
-            featureMenu(people);
-            break;
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
           default:
           app(people); // restart app
             break;
         }
-       }
+     }
        else if (ageEntry === "4"){
         alert("Here is a list of people in this age group \n Uma Bob \n Billy Bob \n Mister Potatoo \n Hanna Madden \n Regina Madden");
-        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
         switch(ageEntries){
           case 'yes':
-            ageEntries = searchByName(people);
-            break;
+            var findName = searchByName(people);
+          return findName;
           case 'no':
-            featureMenu(people);
-            break;
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
           default:
           app(people); // restart app
             break;
         }
-       }
+     }
        else if (ageEntry === "5"){
         alert("Here is a list of people in this age group \n Missuz Potatoo \n Jon Walkens \n Micheal Walkens");
-        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
         switch(ageEntries){
           case 'yes':
-            ageEntries = searchByName(people);
-            break;
+            var findName = searchByName(people);
+          return findName;
           case 'no':
-            featureMenu(people);
-            break;
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
           default:
           app(people); // restart app
             break;
         }
-       }
+     }
        else if (ageEntry === "6"){
         alert("Here is a list of people in this age group \n Jen Pafoy \n Jack Pafoy \n Mader Madden \n Joy Madden");
-        var ageEntries= promptFor("Did you find who you were looking for? Do you want to restart search? Enter Yes or No", yesNo).toLowerCase();
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
         switch(ageEntries){
           case 'yes':
-            ageEntries = searchByName(people);
-            break;
+            var findName = searchByName(people);
+          return findName;
           case 'no':
-            featureMenu(people);
-            break;
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
           default:
           app(people); // restart app
             break;
         }
+     }
+     else{
+       return searchByAge(people);
+     }
+}
+function searchByHeight(people){
+  var heightEntry = prompt("How old do you think they are? Enter the Number \n 1: 30s \n 2: 40s \n 3: 50s \n 4: 60s \n 5: 70s \n 6: 80s");
+       if(heightEntry === "1"){
+        alert("Here is a list of people in this age group: \n Joey Madden");
+          var heightEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+          switch(heightEntries){
+            case 'yes':
+              var findName = searchByName(people);
+            return findName;
+            case 'no':
+              var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+              if (suspectNotFound === "yes"){
+              return searchByAge(people);
+              }
+              else if (suspectNotFound === "no"){
+                return featureMenu(people);
+              }
+            default:
+            app(people); // restart app
+              break;
+          }
        }
-       else{
-         return app(people);
-       }
+       else if (ageEntry === "2"){
+        alert("There is no one in this age group. Try another selection");
+       return searchByAge(people)
+     }
+       else if (ageEntry === "3"){
+        alert("Here is a list of people in this age group: \n Ellen Madden \n Mattias Madden \n Eloise Madden \n Amii Pafoy \n Dave Pafoy \n Annie Pafoy \n Jasmine Bob \n Ralph Bob \n Jill Pafoy");
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            var findName = searchByName(people);
+          return findName;
+          case 'no':
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
+          default:
+          app(people); // restart app
+            break;
+        }
+     }
+       else if (ageEntry === "4"){
+        alert("Here is a list of people in this age group \n Uma Bob \n Billy Bob \n Mister Potatoo \n Hanna Madden \n Regina Madden");
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            var findName = searchByName(people);
+          return findName;
+          case 'no':
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
+          default:
+          app(people); // restart app
+            break;
+        }
+     }
+       else if (ageEntry === "5"){
+        alert("Here is a list of people in this age group \n Missuz Potatoo \n Jon Walkens \n Micheal Walkens");
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            var findName = searchByName(people);
+          return findName;
+          case 'no':
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
+          default:
+          app(people); // restart app
+            break;
+        }
+     }
+       else if (ageEntry === "6"){
+        alert("Here is a list of people in this age group \n Jen Pafoy \n Jack Pafoy \n Mader Madden \n Joy Madden");
+        var ageEntries= promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+        switch(ageEntries){
+          case 'yes':
+            var findName = searchByName(people);
+          return findName;
+          case 'no':
+            var suspectNotFound = promptFor("Do you want to restart search by age? Enter Yes or No", yesNo).toLowerCase();
+            if (suspectNotFound === "yes"){
+            return searchByAge(people);
+            }
+            else if (suspectNotFound === "no"){
+              return featureMenu(people);
+            }
+          default:
+          app(people); // restart app
+            break;
+        }
+     }
+     else{
+       return searchByAge(people);
+     }
     }
+// function searchByWeight(people) {
+//   var weightSearch = promptFor("Do you want to search by weight? Enter yes or no.", yesNo).toLowerCase();
 
-}
-function searchByHeight(people) {
-  var heightSearch = promptFor("Do you want to search by height? Enter yes or no.", yesNo).toLowerCase();
+//   switch (weightSearch) {
+//       case "yes":
+//           var findWeight = lookUpWeight(people);
+//           return findWeight;
+//       case "no":
+//           return people;
+//       default:
+//           searchByWeight(people);
+//           break;
+//   }
+// }
 
-  switch (heightSearch) {
-      case "yes":
-          var findHeight = lookUpHeight(people);
-          return findHeight;
-      case "no":
-          return people;
-      default:
-          searchByHeight(people);
-          break;
-  }
-}
+// function searchByOccupation(people) {
+//   var occupationSearch = promptFor("Do you want to search by occupation? Enter yes or no.", yesNo).toLowerCase();
 
-function searchByWeight(people) {
-  var weightSearch = promptFor("Do you want to search by weight? Enter yes or no.", yesNo).toLowerCase();
+//   switch (occupationSearch) {
+//       case "yes":
+//           var findOccupation = lookUpOccupation(people);
+//           return findOccupation;
+//       case "no":
+//           return people;
+//       default:
+//           searchByOccupation(people);
+//           break;
+//   }
+// }
 
-  switch (weightSearch) {
-      case "yes":
-          var findWeight = lookUpWeight(people);
-          return findWeight;
-      case "no":
-          return people;
-      default:
-          searchByWeight(people);
-          break;
-  }
-}
+// function searchByEyeColor(people) {
+//   var eyeColorSearch = promptFor("Do you want to search by eye color? Enter yes or no.", yesNo).toLowerCase();
 
-function searchByOccupation(people) {
-  var occupationSearch = promptFor("Do you want to search by occupation? Enter yes or no.", yesNo).toLowerCase();
+//   switch (eyeColorSearch) {
+//       case "yes":
+//           var findEyeColor = lookUpEyeColor(people);
+//           return findEyeColor;
+//       case "no":
+//           return people;
+//       default:
+//           searchByEyeColor(people);
+//           break;
+//   }
+// }
 
-  switch (occupationSearch) {
-      case "yes":
-          var findOccupation = lookUpOccupation(people);
-          return findOccupation;
-      case "no":
-          return people;
-      default:
-          searchByOccupation(people);
-          break;
-  }
-}
+// function lookUpOccupation(people) {
 
-function searchByEyeColor(people) {
-  var eyeColorSearch = promptFor("Do you want to search by eye color? Enter yes or no.", yesNo).toLowerCase();
+//   var occupation = promptFor("What is the person's occupation?", chars);
+//   var occupationFilteredArray = people.filter(function (element) {
 
-  switch (eyeColorSearch) {
-      case "yes":
-          var findEyeColor = lookUpEyeColor(people);
-          return findEyeColor;
-      case "no":
-          return people;
-      default:
-          searchByEyeColor(people);
-          break;
-  }
-}
+//       if (element.occupation === occupation) {
+//           return true;
+//       }
+//   });
 
-function lookUpOccupation(people) {
+//   return occupationFilteredArray;
+// }
 
-  var occupation = promptFor("What is the person's occupation?", chars);
-  var occupationFilteredArray = people.filter(function (element) {
+// function lookUpEyeColor(people) {
 
-      if (element.occupation === occupation) {
-          return true;
-      }
-  });
+//   var eyeColor = promptFor("What is the person's eye color?", chars);
+//   var eyeColorFilteredArray = people.filter(function (element) {
 
-  return occupationFilteredArray;
-}
+//       if (element.eyeColor === eyeColor) {
+//           return true;
+//       }
+//   });
 
-function lookUpEyeColor(people) {
+//   return eyeColorFilteredArray;
+// }
 
-  var eyeColor = promptFor("What is the person's eye color?", chars);
-  var eyeColorFilteredArray = people.filter(function (element) {
+// function lookUpHeight(people) {
 
-      if (element.eyeColor === eyeColor) {
-          return true;
-      }
-  });
+//   var height = parseInt(promptFor("What is the person's height?", chars));
+//   var heightFilteredArray = people.filter(function (element) {
 
-  return eyeColorFilteredArray;
-}
+//       if (element.height === height) {
+//           return true;
+//       }
+//   });
 
-function lookUpHeight(people) {
-
-  var height = parseInt(promptFor("What is the person's height?", chars));
-  var heightFilteredArray = people.filter(function (element) {
-
-      if (element.height === height) {
-          return true;
-      }
-  });
-
-  return heightFilteredArray;
-}
-
-function searchByAge(people) {
-
-  var ageSearch = promptFor("Do you want to search by age? Enter yes or no.", yesNo).toLowerCase();
-
-  switch (ageSearch) {
-      case "yes":
-          changeDobToAge(people);
-          var findAge = lookUpAge(people);
-          return findAge;
-      case "no":
-          return people;
-      default:
-          searchByAge(people);
-          break;
-  }
-}
-
+//   return heightFilteredArray;
+// }
 
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
