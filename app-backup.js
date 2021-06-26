@@ -10,7 +10,6 @@ function app(people) {
   switch (searchType) {
     case 'yes':
       searchResults = searchByName(people);
-      console.log(searchResults);
       break;
     case 'no':
       //search by traits 
@@ -22,7 +21,7 @@ function app(people) {
   }
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults[0], people);
 }
 
 // Menu function to call once you find who you are looking for
@@ -319,7 +318,6 @@ function searchByHeight(people) {
     return searchByHeight(people);
   }
 }
-
 function searchByWeight(people) {
   var weightEntry = prompt("How heavy do you think they are? Enter the Number \n 1: 100-124 \n 2: 125-149 \n 3: 150-174 \n 4: 175-199 \n 5: 200-224 \n 6: 225-249 \n 7: 250-274");
   if (weightEntry === "1") {
@@ -362,11 +360,6 @@ function searchByWeight(people) {
         break;
     }
   }
-
-  else {
-    return searchByWeight(people);
-  }
-}
   if (weightEntry === "3") {
     alert("Here is a list of people in this weight range: \n Jasmine Bob \n Mister Potatoo \n Uma Bob");
     var weightEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
@@ -399,9 +392,9 @@ function searchByWeight(people) {
         if (suspectNotFound === "yes") {
           return searchByWeight(people);
         }
-       else if (suspectNotFound === "no") {
-        return featureMenu(people);
-      }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
       default:
         app(people); // restart app
         break;
@@ -467,7 +460,328 @@ function searchByWeight(people) {
         break;
     }
   }
-
+  else {
+    return searchByHeight(people);
+  }
+}
+function searchByGender(people){
+  var genderEntry = prompt("Lets search by Gender. Enter a number: \n 1: Male \n 2: Female");
+  if (genderEntry === "1") {
+    alert("Here is a list of people that are Males: \n Mister Potatoo \n Jack Pafoy \n Jon Walkens \n Micheal Walkens \n Dave Pafoy \n Billy Bob \n Mattias Madden \n Ralph Bob \n Mader Madden");
+    var genEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (genEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Gender? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByGender(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (gendEntry === "2") {
+    alert("Here is a list of people that are Females: \n Joey Madden \n Ellen Madden \n Uma Bob \n Eloise Madden \n Hana Madden \n Regina Madden \n Amii Pafoy \n Jill Pafoy \n Annie Pafoy \n Jasmine Bob \n Jen Pafoy \n Joy Madden \n Missuz Potatoo ");
+    var genEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (genEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByGender(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else {
+    return featureMenu(people);
+  }
+}
+function searchByEyeColor(people){
+  var eyeEntry = prompt("Lets search by eye color. Enter a number: \n Blue \n Brown \n Green \n Hazel \n Black");
+  if (eyeEntry === "1") {
+    alert("Here is a list of people that have Blue eyes: \n Joey Madden \n Ellen Madden \n Mattias Madden \n Jasmine Bob \n Ralph Bob \n Missuz Potatoo");
+    var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (colorEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Gender? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByEyeColor(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  if (eyeEntry === "2") {
+    alert("Here is a list of people that have Brown eyes: \n Eloise Madden \n Hana Madden \n Regina Madden \n Ammi Pafoy \n Jill Pafoy \n Jon Walkens \n Micheal Walkens \n Uma Bob \n Billy Bob");
+    var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (colorEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by eye color? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByEyeColor(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  if (eyeEntry === "3") {
+    alert("Here is a list of people that have Green eyes: \n Dave Pafoy");
+    var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (colorEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by eye color? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByEyeColor(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  if (eyeEntry === "4") {
+    alert("Here is a list of people that have Hazel eyes: \n Annie Pafoy \n Joy Madden \n Mister Potatoo");
+    var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (colorEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by eye color? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByEyeColor(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  if (eyeEntry === "5") {
+    alert("Here is a list of people that have Black eyes: \n Mader Madden \n Jen Pafoy \n Jack Pafoy");
+    var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (colorEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by eye color? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByEyeColor(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else {
+    return featureMenu(people);
+  }
+}
+function searchByOccupation(people) {
+  var occEntry = prompt("What occupation do you think they do for a living? Enter a number: \n 1: Doctor \n 2: Assistant \n 3: Politician \n 4: Nurse \n 5: Landscaper \n 6: Programmer \n 7: Architect \n 8: Student");
+  if (occEntry === "1") {
+    alert("Here is a list of people in this Occupation: \n Joey Madden \n Ellen Madden \n Dave Pafoy \n Joy Madden");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "2") {
+    alert("Here is a list of people in this Occupation: \n Mattias Madden \n Eloise Madden \n Jasmine Bob \n Jon Walkens \n Uma Bob ");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+         return searchByOccupation(people);
+      }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+      }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "3") {
+    alert("Here is a list of people in this Occupation: \n Hana Madden ");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "4") {
+    alert("Here is a list of people in this Occupation: \n Ralph Bob \n Jack Pafoy \n Regina Madden");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "5") {
+    alert("Here is a list of people in this Occupation: \n Micheal Walkens \n Annie Pafoy \n Mader Madden \n Amii Pafoy");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "6") {
+    alert("Here is a list of people in this Occupation: \n Billy Bob \n Jill Pafoy ");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+ else if (occEntry === "7") {
+    alert("Here is a list of people in this Occupation: \n Missuz Potatoo \n Mister Potatoo");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else if (occEntry === "8") {
+    alert("Here is a list of people in this Occupation: \n Jen Pafoy ");
+    var occEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
+    switch (occEntries) {
+      case 'yes':
+        var findName = searchByName(people);
+        return findName;
+      case 'no':
+        var suspectNotFound = promptFor("Do you want to restart search by Occupation? Enter Yes or No", yesNo).toLowerCase();
+        if (suspectNotFound === "yes") {
+          return searchByOccupation(people);
+        }
+        else if (suspectNotFound === "no") {
+          return featureMenu(people);
+        }
+      default:
+        app(people); // restart app
+        break;
+    }
+  }
+  else {
+    return featureMenu(people);
+  }
+}
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
@@ -483,24 +797,12 @@ function searchByName(people) {
   // TO DO: find the person using the name they entered
   return foundPerson;
 }
-
 // alerts a list of people
 function displayPeople(people) {
   alert(people.map(function (person) {
     return person.firstName + " " + person.lastName;
   }).join("\n"));
 }
-
-// function displayInfo(person){
-//   // Make a code to call all the traits of the person. (IE: data = (people, [i])), alert([i])
-//   // print all of the information about a person:
-//   // height, weight, age, name, occupation, eye color.   
-//   // let personInfo = "First Name: " + person[i].firstName + "\n";
-//   // personInfo += "Last Name: " + person[i].lastName + "\n";
-//   // TODO: finish getting the rest of the information to display
-//   // let billyBob = data[0];
-//   alert(data[i]);
-// }
 
 // function that prompts and validates user input
 function promptFor(question, valid) {
