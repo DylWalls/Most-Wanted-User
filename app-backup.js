@@ -511,7 +511,7 @@ function searchByGender(people){
   }
 }
 function searchByEyeColor(people){
-  var eyeEntry = prompt("Lets search by eye color. Enter a number: \n Blue \n Brown \n Green \n Hazel \n Black");
+  var eyeEntry = prompt("Lets search by eye color. Enter a number: \n 1: Blue \n 2: Brown \n3: Green \n4: Hazel \n5: Black");
   if (eyeEntry === "1") {
     alert("Here is a list of people that have Blue eyes: \n Joey Madden \n Ellen Madden \n Mattias Madden \n Jasmine Bob \n Ralph Bob \n Missuz Potatoo");
     var colorEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
