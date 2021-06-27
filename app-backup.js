@@ -10,10 +10,11 @@ function app(people) {
   switch (searchType) {
     case 'yes':
       searchResults = searchByName(people);
+      console.log(searchResults);
       break;
     case 'no':
       //search by traits 
-      featureMenu(people);
+      searchResults = featureMenu(people);
       break;
     default:
       app(people); // restart app
@@ -21,7 +22,7 @@ function app(people) {
   }
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults[0], people);
+  mainMenu(searchResults, people);
 }
 
 // Menu function to call once you find who you are looking for
@@ -34,18 +35,19 @@ function mainMenu(person, people) {
     return app(people); // restart
   }
 
-  let displayOption = prompt(`Found ${person.firstName + " " + person.lastName} . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'`);
+  let displayOption = prompt(`Found ${person[0].firstName + " " + person[0].lastName}. Do you want to know their 'info', 'spouse', or 'family'? Type the option you want or 'restart' or 'quit'`);
 
   switch (displayOption) {
     case "info":
-      // TODO: get person's info
-      break;
-    case "family":
+      alert(`First Name: ${person[0].firstName} \n Last Name: ${person[0].lastName} \n DoB: ${person[0].dob} \n Occupation: ${person[0].occupation} \n Gender: ${person[0].gender} \n Eye Color: ${person[0].eyeColor} \n Height: ${person[0].height} \n Weight: ${person[0].weight}`)
+      return mainMenu(person, people);
+    case "spouse":
       // TODO: get person's family
-      break;
-    case "descendants":
-      // TODO: get person's descendants
-      break;
+      alert(`Spouse: ${person[0].currentSpouse}`);
+      return mainMenu(person, people);
+    case "family":
+      alert(`Family: ${person[0].parents}`);
+      return mainMenu(person, people);
     case "restart":
       app(people); // restart
       break;
