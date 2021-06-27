@@ -488,7 +488,7 @@ function searchByGender(people){
         break;
     }
   }
-  else if (gendEntry === "2") {
+  else if (genderEntry === "2") {
     alert("Here is a list of people that are Females: \n Joey Madden \n Ellen Madden \n Uma Bob \n Eloise Madden \n Hana Madden \n Regina Madden \n Amii Pafoy \n Jill Pafoy \n Annie Pafoy \n Jasmine Bob \n Jen Pafoy \n Joy Madden \n Missuz Potatoo ");
     var genEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
     switch (genEntries) {
