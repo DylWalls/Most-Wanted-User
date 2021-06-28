@@ -43,10 +43,10 @@ function mainMenu(person, people) {
       return mainMenu(person, people);
     case "spouse":
       // TODO: get person's family
-      alert(`Spouse: ${person[0].currentSpouse}`);
+      alert(`Spouse: ${person[0].currentSpouse}`, person[0].indexof[11, 2]);
       return mainMenu(person, people);
     case "family":
-      alert(`Family: ${person[0].parents}`);
+      alert(`Family: ${person[0].parents}`, person[0].indexof[10, 2]);
       return mainMenu(person, people);
     case "restart":
       app(people); // restart
@@ -488,7 +488,7 @@ function searchByGender(people){
         break;
     }
   }
-  else if (gendEntry === "2") {
+  else if (genderEntry === "2") {
     alert("Here is a list of people that are Females: \n Joey Madden \n Ellen Madden \n Uma Bob \n Eloise Madden \n Hana Madden \n Regina Madden \n Amii Pafoy \n Jill Pafoy \n Annie Pafoy \n Jasmine Bob \n Jen Pafoy \n Joy Madden \n Missuz Potatoo ");
     var genEntries = promptFor("Did you find who you were looking for? Enter Yes or No", yesNo).toLowerCase();
     switch (genEntries) {
