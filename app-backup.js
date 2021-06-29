@@ -53,7 +53,19 @@ function mainMenu(person, people) {
       if(foundSpouse[0] != undefined){
         alert(`Spouse: ${foundSpouse[0].firstName} ${foundSpouse[0].lastName}`)
       }else if (foundSpouse[0] === undefined){
-        prompt(`${person[0].firstName} ${person[0].lastName} is currently single. Would you like their number?`);
+        var gotYa = promptFor(`${person[0].firstName} ${person[0].lastName} is currently single. Would you like their number? \n Enter 'yes' or 'no'`, yesNo).toLowerCase();
+        switch (gotYa){
+          case 'yes':
+            alert(`You can't date ${person[0].firstName} ${person[0].lastName}, they're a suspect!`);
+            if(gotYa === 'yes'){
+              return mainMenu(person, people);
+            }
+          case 'no':
+            alert(`Well, that's a relief: ${person[0].firstName} ${person[0].lastName} was out of your league anyway...`);
+            if(gotYa === 'no'){
+            return mainMenu(person, people);
+          }
+        }
       }
       return mainMenu(person, people);
     case "family":
