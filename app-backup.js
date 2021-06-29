@@ -43,9 +43,29 @@ function mainMenu(person, people) {
       return mainMenu(person, people);
     case "spouse":
       // TODO: get person's family
-      alert(`Spouse: ${person[0].currentSpouse}`);
+      let spouseID = person[0].currentSpouse;
+      let foundSpouse;
+        foundSpouse = people.filter(function (person) {
+          if (spouseID === person.id) {
+            return true;
+          }
+        });
+      if(foundSpouse[0] != undefined){
+        alert(`Spouse: ${foundSpouse[0].firstName} ${foundSpouse[0].lastName}`)
+      }else if (foundSpouse[0] === undefined){
+        prompt(`${person[0].firstName} ${person[0].lastName} is currently single. Would you like their number?`);
+      }
       return mainMenu(person, people);
     case "family":
+      let familyID = person[0].parents;
+      let foundFamily;
+        foundFamily = people.filter(function (person) {
+          if(familyID === person[0].parents) {
+            return true;
+          }else if(familyID === person[0].currentSpouse){
+            return true;
+          }
+        });
       alert(`Family: ${person[0].parents}`);
       return mainMenu(person, people);
     case "restart":
