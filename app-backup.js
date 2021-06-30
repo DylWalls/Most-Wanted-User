@@ -69,16 +69,17 @@ function mainMenu(person, people) {
       }
       return mainMenu(person, people);
     case "family":
-      let familyID = person[0].parents;
+      stringifier(people);
+      let parentsArray = person[0].parents;
       let foundFamily;
-        foundFamily = people.filter(function (person) {
-          if(familyID === person[0].parents) {
+      foundFamily = people.filter(function (person) {
+        if(parentsArray.includes(person.id)) {
             return true;
-          }else if(familyID === person[0].currentSpouse){
+          }else if(parentsArray[0] === person.currentSpouse || parentsArray[1] === person.currentSpouse){
             return true;
           }
         });
-      alert(`Family: ${person[0].parents}`);
+      alert(`Family: ${lkfklfjasdf.join('\n')}`);
       return mainMenu(person, people);
     case "restart":
       app(people); // restart
@@ -86,6 +87,10 @@ function mainMenu(person, people) {
     case "quit":
       return; // stop execution
     default:
+
+
+
+    
       return mainMenu(person, people); // ask again
   }
 }
@@ -855,3 +860,14 @@ function yesNo(input) {
 function chars(input) {
   return true; // default validation only
 }
+
+function stringifier(array){
+  let fullNameStringArray = [];
+  for (let i = 0; i < array.length; i++) {
+    let fullNameString = `${array[i].firstName} ${array[i].lastName}`;
+    fullNameStringArray.push(fullNameString);
+  }
+  return fullNameStringArray.join('\n');
+}
+let stringified = stringifier(people);
+console.log(stringified);
