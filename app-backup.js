@@ -79,7 +79,7 @@ function mainMenu(person, people) {
             return true;
           }
         });
-      alert(`Family: ${lkfklfjasdf.join('\n')}`);
+      alert(`Family: ${foundFamily.join('\n')}`);
       return mainMenu(person, people);
     case "restart":
       app(people); // restart
@@ -870,4 +870,4 @@ function stringifier(array){
   return fullNameStringArray.join('\n');
 }
 let stringified = stringifier(people);
-console.log(stringified);
+alert(stringified);
