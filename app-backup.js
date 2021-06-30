@@ -36,7 +36,6 @@ function mainMenu(person, people) {
   }
 
   let displayOption = prompt(`Found ${person[0].firstName + " " + person[0].lastName}. Do you want to know their 'info', 'spouse', or 'family'? Type the option you want or 'restart' or 'quit'`);
-
   switch (displayOption) {
     case "info":
       alert(`First Name: ${person[0].firstName} \n Last Name: ${person[0].lastName} \n DoB: ${person[0].dob} \n Occupation: ${person[0].occupation} \n Gender: ${person[0].gender} \n Eye Color: ${person[0].eyeColor} \n Height: ${person[0].height} \n Weight: ${person[0].weight}`)
@@ -69,7 +68,8 @@ function mainMenu(person, people) {
       }
       return mainMenu(person, people);
     case "family":
-      stringifier(people);
+      findDescendants(people, person);
+      stringifier;
       let parentsArray = person[0].parents;
       let foundFamily;
       foundFamily = people.filter(function (person) {
@@ -79,7 +79,7 @@ function mainMenu(person, people) {
             return true;
           }
         });
-      alert(`Family: ${foundFamily.join('\n')}`);
+      alert(`Family: ${stringifier}`);
       return mainMenu(person, people);
     case "restart":
       app(people); // restart
@@ -869,5 +869,18 @@ function stringifier(array){
   }
   return fullNameStringArray.join('\n');
 }
-let stringified = stringifier(people);
-alert(stringified);
+let stringified = stringifier();
+console.log(stringified);
+
+function findDescendants(array, objectInArray){
+    let foundDescendants = [];
+    for ( let i=0; i<array.length; i++){
+        if (array[i].parents.includes(objectInArray.id)){
+           foundDescendants.push(array[i])
+        }
+    }
+    for (let i=0; i<foundDescendants.length; i++){
+      foundDescendants = foundDescendants.concat(findDescendants(array, foundDescendants[0]));
+    }
+    return foundDescendants;
+} 
